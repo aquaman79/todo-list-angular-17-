@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#submitId{
+    margin-top: 2%;
+}
+
+#completedId{
+    margin-left: 5%;
+}

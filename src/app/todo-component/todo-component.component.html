@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>todo-component works!</h1>
+<hr>
+<form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)" >
+    <div class="form-group">
+      <label for="task">Email address</label>
+      <input [(ngModel)]="task" name="task" type="text" class="form-control" id="task"  placeholder="Enter task" required>
+
+      <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorTask" class="form-text text-danger">Task request.</small>
+    </div>
+    <button  [disabled]="taskForm.invalid" id="submitId" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">TASK</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskArray ; index as i  ">
+        <td>{{task.taskName}}</td>
+        <td><input id="completedId" type="checkbox"  (change)="changeCompleted(i)" /></td>
+        <td><button class="btn btn-danger " (click)="deleteTask(i)">Delete</button></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
